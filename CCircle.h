@@ -8,6 +8,6 @@ private:
 public:
 	CCircle(Point p1,Point p2, GfxInfo FigureGfxInfo);
 	virtual void Draw(Output* pOut) const;
-
+	virtual bool ClickedPointinsideFig(int x, int y);
 };
 

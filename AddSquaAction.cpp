@@ -1,6 +1,5 @@
 #include "AddSquaAction.h"
 #include "ApplicationManager.h"
-
 #include "GUI/Input.h"
 #include "GUI/Output.h"
 #include "CSquare.h"

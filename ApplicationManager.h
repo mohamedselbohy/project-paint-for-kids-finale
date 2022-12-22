@@ -30,6 +30,10 @@ public:
 	ActionType GetUserAction() const;
 	void ExecuteAction(ActionType) ; //Creates an action and executes it
 	
+	// -- Set And Get SelectedFig 
+	void SetSelectedFig(CFigure* p);
+	CFigure* GetSelectedFig() const;
+
 	// -- Figures Management Functions
 	void AddFigure(CFigure* pFig);          //Adds a new figure to the FigList
 	CFigure *GetFigure(int x, int y) const; //Search for a figure given a point inside the figure
@@ -38,6 +42,10 @@ public:
 	Input *GetInput() const; //Return pointer to the input
 	Output *GetOutput() const; //Return pointer to the output
 	void UpdateInterface() const;	//Redraws all the drawing window	
+
+
+	// Function To make sure we select only the desired figure
+	void OnlyThisFigIsSelected(CFigure* DesiredFig);
 };
 
 #endif

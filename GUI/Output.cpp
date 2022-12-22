@@ -181,7 +181,11 @@ color Output::getCrntDrawColor() const	//get current drawing color
 	return UI.DrawColor;
 }
 //////////////////////////////////////////////////////////////////////////////////////////
-
+color Output::getCrntHighlitedColor() const
+{
+	return UI.HighlightColor;
+}
+///////////////////////////////////////////////////////////////////////////////////////////
 color Output::getCrntFillColor() const	//get current filling color
 {
 	return UI.FillColor;
@@ -279,7 +283,7 @@ void Output::Drawhexa(Point P1, GfxInfo HexaGfxInfo, bool selected) const
 	else
 		style = FRAME;
 
-	const int px[6] = { P1.x + 100,P1.x + 100,P1.x     ,P1.x - 100,P1.x - 100,P1.x };
+	const int px[6] = { P1.x + 100 , P1.x + 100 , P1.x , P1.x - 100 , P1.x - 100 , P1.x };
 	const int py[6] = { P1.y + 58,P1.y - 58,P1.y - 116,P1.y - 58,P1.y + 58,P1.y + 116 };
 	pWind->DrawPolygon(px, py, 6, style);
 }

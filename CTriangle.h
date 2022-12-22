@@ -1,4 +1,5 @@
-#pragma once
+#ifndef CTRIA_H
+#define CTRIA_H
 #include "Figures/CFigure.h"
 class CTriangle : public CFigure
 {
@@ -9,5 +10,7 @@ private :
 public:
 	CTriangle(Point p1, Point p2, Point p3, GfxInfo FigureGfxInfo);
 	virtual void Draw(Output* pOut) const;
+	virtual bool ClickedPointinsideFig(int x, int y);
 };
 
+#endif

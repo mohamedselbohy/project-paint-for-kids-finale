@@ -1,13 +1,13 @@
 #pragma once
 #include "Actions/Action.h"
 
-class AddSquaAction : public Action
+class SelectAction : public Action
 {
 private:
-	Point P1; 
-	GfxInfo SquaGfxInfo;
+	Point p1;
+	GfxInfo SelectGfxInfo;
 public:
-	AddSquaAction(ApplicationManager* pApp);
+	SelectAction(ApplicationManager* pApp);
 
 	//Reads rectangle parameters
 	virtual void ReadActionParameters();
@@ -16,5 +16,4 @@ public:
 	virtual void Execute();
 
 };
-
 

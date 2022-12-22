@@ -4,6 +4,7 @@
 #include "AddCircleAction.h"
 #include "AddTriaAction.h"
 #include "AddHexagonAction.h"
+#include "SelectAction.h"
 
 //Constructor
 ApplicationManager::ApplicationManager()
@@ -51,6 +52,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		case DRAW_HEXAGON:
 			pAct = new AddHexagonAction(this);
 			break;
+		case DRAW_SELECT_ONE:
+			pAct = new SelectAction(this);
+			break;
 		case EXIT:
 			///create ExitAction here
 			
@@ -83,12 +87,26 @@ CFigure *ApplicationManager::GetFigure(int x, int y) const
 {
 	//If a figure is found return a pointer to it.
 	//if this point (x,y) does not belong to any figure return NULL
-
-
+	for (int i = 0; i < FigCount; i++)
+	{
+		if (FigList[i]->ClickedPointinsideFig(x, y))
+		{
+			//FigList[i]->PrintInfo(pOut);
+			return FigList[i];
+		}
+	}
+	return NULL;
 	//Add your code here to search for a figure given a point x,y	
 	//Remember that ApplicationManager only calls functions do NOT implement it.
+}
 
-	return NULL;
+void ApplicationManager::SetSelectedFig(CFigure* p) 
+{
+	SelectedFig = p;
+}
+CFigure* ApplicationManager::GetSelectedFig() const
+{
+	return SelectedFig;
 }
 //==================================================================================//
 //							Interface Management Functions							//
@@ -97,6 +115,9 @@ CFigure *ApplicationManager::GetFigure(int x, int y) const
 //Draw all figures on the user interface
 void ApplicationManager::UpdateInterface() const
 {	
+	//////////////////////////////////////////////////////
+	// Must clear drawing area before update interface////
+	/////////////////////////////////////////////////////
 	for(int i=0; i<FigCount; i++)
 		FigList[i]->Draw(pOut);		//Call Draw function (virtual member fn)
 }
@@ -107,7 +128,16 @@ Input *ApplicationManager::GetInput() const
 //Return a pointer to the output
 Output *ApplicationManager::GetOutput() const
 {	return pOut; }
-////////////////////////////////////////////////////////////////////////////////////
+//*******************************************************************************************
+void ApplicationManager::OnlyThisFigIsSelected(CFigure* DesiredFig) //unselect all fig except the sent one 
+{
+	for (int i = 0; i < FigCount; i++)
+	{
+		if (FigList[i] != DesiredFig)
+			FigList[i]->SetSelected(false);
+	}
+}
+//********************************************************************************************
 //Destructor
 ApplicationManager::~ApplicationManager()
 {
