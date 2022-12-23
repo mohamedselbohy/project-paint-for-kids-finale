@@ -28,7 +28,10 @@ void AddCircleAction::ReadActionParameters()
 	
 	CircGfxInfo.DrawClr = pOut->getCrntDrawColor();
 	CircGfxInfo.FillClr = pOut->getCrntFillColor();
-
+	if (CircGfxInfo.FillClr == LIGHTGOLDENRODYELLOW)
+		CircGfxInfo.isFilled = false;
+	else
+		CircGfxInfo.isFilled = true;
 	pOut->ClearStatusBar();
 
 }

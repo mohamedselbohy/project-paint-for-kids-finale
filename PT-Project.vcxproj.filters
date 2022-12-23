@@ -172,6 +172,9 @@
     <ClCompile Include="AddHexagonAction.cpp">
       <Filter>Action Classes</Filter>
     </ClCompile>
+    <ClCompile Include="FillClraction.cpp">
+      <Filter>Action Classes</Filter>
+    </ClCompile>
     <ClCompile Include="SelectAction.cpp">
       <Filter>Action Classes</Filter>
     </ClCompile>
@@ -287,6 +290,9 @@
       <Filter>Action Classes</Filter>
     </ClInclude>
     <ClInclude Include="resource.h" />
+    <ClInclude Include="FillClrAction.h">
+      <Filter>Action Classes</Filter>
+    </ClInclude>
     <ClInclude Include="SelectAction.h">
       <Filter>Action Classes</Filter>
     </ClInclude>

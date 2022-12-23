@@ -29,6 +29,10 @@ void AddRectAction::ReadActionParameters()
 	//get drawing, filling colors and pen width from the interface
 	RectGfxInfo.DrawClr = pOut->getCrntDrawColor();
 	RectGfxInfo.FillClr = pOut->getCrntFillColor();
+	if (RectGfxInfo.FillClr == LIGHTGOLDENRODYELLOW)
+		RectGfxInfo.isFilled = false;
+	else
+		RectGfxInfo.isFilled = true;
 
 	pOut->ClearStatusBar();
 

@@ -22,7 +22,10 @@ void AddHexagonAction::ReadActionParameters()
 	HexaGfxInfo.isFilled = false;
 	HexaGfxInfo.DrawClr = pOut->getCrntDrawColor();
 	HexaGfxInfo.FillClr = pOut->getCrntFillColor();
-
+	if (HexaGfxInfo.FillClr == LIGHTGOLDENRODYELLOW)
+		HexaGfxInfo.isFilled = false;
+	else
+		HexaGfxInfo.isFilled = true;
 	pOut->ClearStatusBar();
 }
 

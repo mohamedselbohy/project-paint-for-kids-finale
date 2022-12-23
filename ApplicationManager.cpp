@@ -5,6 +5,7 @@
 #include "AddTriaAction.h"
 #include "AddHexagonAction.h"
 #include "SelectAction.h"
+#include "FillClrAction.h"
 
 //Constructor
 ApplicationManager::ApplicationManager()
@@ -55,6 +56,8 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		case DRAW_SELECT_ONE:
 			pAct = new SelectAction(this);
 			break;
+		case DRAW_FILLING_COLOR:
+			pAct = new FillClrAction(this);
 		case EXIT:
 			///create ExitAction here
 			

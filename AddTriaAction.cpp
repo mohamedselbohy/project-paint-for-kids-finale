@@ -31,7 +31,10 @@ void AddTriaAction::ReadActionParameters()
 	TriaGfxInfo.isFilled = false;	
 	TriaGfxInfo.DrawClr = pOut->getCrntDrawColor();
 	TriaGfxInfo.FillClr = pOut->getCrntFillColor();
-
+	if (TriaGfxInfo.FillClr == LIGHTGOLDENRODYELLOW)
+		TriaGfxInfo.isFilled = false;
+	else
+		TriaGfxInfo.isFilled = true;
 	pOut->ClearStatusBar();
 }
 

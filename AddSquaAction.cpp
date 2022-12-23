@@ -18,9 +18,12 @@ void AddSquaAction::ReadActionParameters()
 
 	pIn->GetPointClicked(P1.x, P1.y);
 
-	SquaGfxInfo.isFilled = false;	
 	SquaGfxInfo.DrawClr = pOut->getCrntDrawColor();
 	SquaGfxInfo.FillClr = pOut->getCrntFillColor();
+	if(SquaGfxInfo.FillClr==LIGHTGOLDENRODYELLOW)
+		SquaGfxInfo.isFilled = false;
+	else
+		SquaGfxInfo.isFilled = true;
 
 	pOut->ClearStatusBar();
 
