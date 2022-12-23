@@ -6,7 +6,7 @@
 #include "AddHexagonAction.h"
 #include "SelectAction.h"
 #include "FillClrAction.h"
-
+#include "DrawClrAction.h"
 //Constructor
 ApplicationManager::ApplicationManager()
 {
@@ -58,6 +58,10 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			break;
 		case DRAW_FILLING_COLOR:
 			pAct = new FillClrAction(this);
+			break;
+		case DRAW_DRAWING_COLOR:
+			pAct = new DrawClrAction(this);
+			break;
 		case EXIT:
 			///create ExitAction here
 			
