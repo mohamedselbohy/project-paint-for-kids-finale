@@ -34,10 +34,10 @@ void CTriangle::MoveFigs(Point NewP)
 	double Difx = cen.x - NewP.x;
 	double Dify = cen.y - NewP.y;
 
-	corner1.x += Difx;
-	corner1.y += Dify;
-	corner2.x += Difx;
-	corner2.y += Dify;
-	corner3.x += Difx;
-	corner3.y += Dify;
+	corner1.x -= Difx;
+	corner1.y -= Dify;
+	corner2.x -= Difx;
+	corner2.y -= Dify;
+	corner3.x -= Difx;
+	corner3.y -= Dify;
 }
