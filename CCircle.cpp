@@ -27,8 +27,9 @@ double CCircle::GetRadius()
 }
 void CCircle::MoveFigs(Point NewP)
 {
+	double r = GetRadius();
 	p1.x = NewP.x; 
 	p1.y = NewP.y; 
-	p2.x = p1.x + GetRadius() * cos(180 * pi / 180);
-	p2.y = p1.y + GetRadius() * sin(180 * pi / 180);
+	p2.x = p1.x + r;
+	p2.y = p1.y;
 }

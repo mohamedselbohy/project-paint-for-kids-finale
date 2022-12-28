@@ -1,12 +1,6 @@
 ﻿cl : command line  warning D9035: option 'Gm' has been deprecated and will be removed in a future release
-  MoveAction.cpp
-  CTriangle.cpp
-C:\Users\20115\project-paint-for-kids-finale\CTriangle.cpp(37,15): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
-C:\Users\20115\project-paint-for-kids-finale\CTriangle.cpp(38,15): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
-C:\Users\20115\project-paint-for-kids-finale\CTriangle.cpp(39,15): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
-C:\Users\20115\project-paint-for-kids-finale\CTriangle.cpp(40,15): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
-C:\Users\20115\project-paint-for-kids-finale\CTriangle.cpp(41,15): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
-C:\Users\20115\project-paint-for-kids-finale\CTriangle.cpp(42,15): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
-  ApplicationManager.cpp
-  Generating Code...
+  CCircle.cpp
+C:\Users\20115\project-paint-for-kids-finale\CCircle.cpp(16,13): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\20115\project-paint-for-kids-finale\CCircle.cpp(17,10): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\20115\project-paint-for-kids-finale\CCircle.cpp(33,14): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
   PT-Project.vcxproj -> C:\Users\20115\project-paint-for-kids-finale\Debug\PT Project.exe
