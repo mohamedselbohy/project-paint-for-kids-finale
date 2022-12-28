@@ -15,7 +15,7 @@ private:
 	int FigCount;		//Actual number of figures
 	CFigure* FigList[MaxFigCount];	//List of all figures (Array of pointers)
 
-	CFigure* SelectedFig; //Pointer to the selected figure
+	CFigure* SelectedFig = NULL; //Pointer to the selected figure
 
 	//Pointers to Input and Output classes
 	Input *pIn;
@@ -44,8 +44,11 @@ public:
 	void UpdateInterface() const;	//Redraws all the drawing window	
 
 
+
 	// Function To make sure we select only the desired figure
 	void OnlyThisFigIsSelected(CFigure* DesiredFig);
+
+	void DeletingFigure();
 };
 
 #endif

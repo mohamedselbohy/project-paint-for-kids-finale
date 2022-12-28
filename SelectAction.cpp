@@ -3,6 +3,7 @@
 #include "GUI\input.h"
 #include "GUI\Output.h"
 
+
 SelectAction::SelectAction(ApplicationManager* pApp):Action(pApp)
 {
 }
@@ -12,7 +13,7 @@ void SelectAction::ReadActionParameters()
 	Output* pOut = pManager->GetOutput();
 	Input* pIn = pManager->GetInput();
 
-
+	
 
 	pOut->PrintMessage("Select Item to Use Amazing features! Click inside any Figure");
 
@@ -21,8 +22,6 @@ void SelectAction::ReadActionParameters()
 	pIn->GetPointClicked(p1.x, p1.y);
 	
 
-
-	//SelectGfxInfo.DrawClr = pOut->getCrntHighlitedColor();
 }
 void SelectAction::Execute()
 {

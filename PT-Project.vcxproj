@@ -172,6 +172,7 @@
     <ClCompile Include="CMUgraphicsLib\jpeg\jutils.c" />
     <ClCompile Include="CSquare.cpp" />
     <ClCompile Include="CTriangle.cpp" />
+    <ClCompile Include="DeleteAction.cpp" />
     <ClCompile Include="DrawClrAction.cpp" />
     <ClCompile Include="Figures\CFigure.cpp" />
     <ClCompile Include="Figures\CRectangle.cpp" />
@@ -181,6 +182,7 @@
     <ClCompile Include="GUI\Output.cpp" />
     <ClCompile Include="ApplicationManager.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MoveAction.cpp" />
     <ClCompile Include="SelectAction.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -212,6 +214,7 @@
     <ClInclude Include="CMUgraphicsLib\jpeg\jversion.h" />
     <ClInclude Include="CSquare.h" />
     <ClInclude Include="CTriangle.h" />
+    <ClInclude Include="DeleteAction.h" />
     <ClInclude Include="DrawClrAction.h" />
     <ClInclude Include="Figures\CFigure.h" />
     <ClInclude Include="Figures\CRectangle.h" />
@@ -223,6 +226,7 @@
     <ClInclude Include="GUI\UI_Info.h" />
     <ClInclude Include="ApplicationManager.h" />
     <ClInclude Include="DEFS.h" />
+    <ClInclude Include="MoveAction.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="SelectAction.h" />
   </ItemGroup>

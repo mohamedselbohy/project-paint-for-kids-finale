@@ -20,12 +20,15 @@ public:
 	void SetSelected(bool s);	//select/unselect the figure
 	bool IsSelected() const;	//check whether fig is selected
 	
-	virtual bool ClickedPointinsideFig(int x, int y) = 0;
+	virtual bool ClickedPointinsideFig(int x, int y) = 0; // check if clicked point is inside a figure or not
+
 
 	virtual void Draw(Output* pOut) const  = 0 ;		//Draw the figure
 	
 	void ChngDrawClr(color Dclr);	//changes the figure's drawing color
 	void ChngFillClr(color Fclr);	//changes the figure's filling color
+
+	virtual void MoveFigs(Point NewP) = 0;
 
 	///The following functions should be supported by the figure class
 	///It should be overridden by each inherited figure

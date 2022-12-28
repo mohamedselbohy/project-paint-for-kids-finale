@@ -19,3 +19,8 @@ bool CSquare::ClickedPointinsideFig(int x, int y)
 	}
 	return false;
 }
+void CSquare::MoveFigs(Point NewP)
+{
+	p.x = NewP.x;
+	p.y = NewP.y;
+}

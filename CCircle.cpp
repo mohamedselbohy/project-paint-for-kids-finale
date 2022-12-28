@@ -1,5 +1,5 @@
 #include "CCircle.h"
-
+#define pi 3.14
 
 CCircle::CCircle(Point c1,Point c2, GfxInfo FigureGfxInfo) :CFigure(FigureGfxInfo)
 {
@@ -20,4 +20,15 @@ bool CCircle::ClickedPointinsideFig(int x, int y)
 		return true;
 	}
 	return false;
+}
+double CCircle::GetRadius()
+{
+	return sqrt(pow(p1.x - p2.x , 2)+pow(p1.y - p2.y , 2));
+}
+void CCircle::MoveFigs(Point NewP)
+{
+	p1.x = NewP.x; 
+	p1.y = NewP.y; 
+	p2.x = p1.x + GetRadius() * cos(180 * pi / 180);
+	p2.y = p1.y + GetRadius() * sin(180 * pi / 180);
 }

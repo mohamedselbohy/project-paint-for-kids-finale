@@ -53,3 +53,8 @@ bool CHexagon::ClickedPointinsideFig(int x, int y)
 
 	return false;
 }
+void CHexagon::MoveFigs(Point NewP)
+{
+	p.x = NewP.x;
+	p.y = NewP.y;
+}

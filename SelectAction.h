@@ -9,10 +9,10 @@ private:
 public:
 	SelectAction(ApplicationManager* pApp);
 
-	//Reads rectangle parameters
+	//read the parameters of the selected figure
 	virtual void ReadActionParameters();
 
-	//Add rectangle to the ApplicationManager
+	//select objects
 	virtual void Execute();
 
 };

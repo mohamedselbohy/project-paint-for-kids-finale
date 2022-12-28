@@ -3,6 +3,7 @@
 
 #include "CFigure.h"
 
+
 class CRectangle : public CFigure
 {
 private:
@@ -12,6 +13,9 @@ public:
 	CRectangle(Point , Point, GfxInfo FigureGfxInfo );
 	virtual void Draw(Output* pOut) const;
 	virtual bool ClickedPointinsideFig(int x, int y);
+	int Getlen();
+	int Getwed();
+	virtual void MoveFigs(Point NewP);
 };
 
 #endif

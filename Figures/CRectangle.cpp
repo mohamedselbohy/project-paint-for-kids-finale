@@ -1,5 +1,6 @@
 #include "CRectangle.h"
 
+
 CRectangle::CRectangle(Point P1, Point P2, GfxInfo FigureGfxInfo):CFigure(FigureGfxInfo)
 {
 	Corner1 = P1;
@@ -31,4 +32,24 @@ bool CRectangle::ClickedPointinsideFig(int x, int y)
 		return true;
 	}
 	return false;
+
+}
+
+int CRectangle::Getlen()
+{
+	return abs(Corner2.x - Corner1.x);
+}
+int CRectangle::Getwed()
+{
+	return abs(Corner1.y - Corner2.y);
+}
+void CRectangle::MoveFigs(Point NewP)
+{
+	double len = Getlen();
+	double wed = Getwed();
+	Corner1.x = NewP.x - len / 2;
+	Corner1.y = NewP.y + wed / 2;
+	Corner2.x = NewP.x + len / 2;
+	Corner2.y = NewP.y - wed / 2;
+
 }

@@ -7,6 +7,8 @@
 #include "SelectAction.h"
 #include "FillClrAction.h"
 #include "DrawClrAction.h"
+#include "MoveAction.h"
+#include "DeleteAction.h"
 //Constructor
 ApplicationManager::ApplicationManager()
 {
@@ -61,6 +63,12 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			break;
 		case DRAW_DRAWING_COLOR:
 			pAct = new DrawClrAction(this);
+			break;
+		case DRAW_MOVE:
+			pAct = new MoveAction(this);
+			break;
+		case DRAW_DELETE:
+			pAct = new DeleteAction(this);
 			break;
 		case EXIT:
 			///create ExitAction here
@@ -125,6 +133,8 @@ void ApplicationManager::UpdateInterface() const
 	//////////////////////////////////////////////////////
 	// Must clear drawing area before update interface////
 	/////////////////////////////////////////////////////
+	pOut->ClearDrawArea();
+
 	for(int i=0; i<FigCount; i++)
 		FigList[i]->Draw(pOut);		//Call Draw function (virtual member fn)
 }
@@ -145,6 +155,21 @@ void ApplicationManager::OnlyThisFigIsSelected(CFigure* DesiredFig) //unselect a
 	}
 }
 //********************************************************************************************
+void ApplicationManager::DeletingFigure() {
+	for (int i = 0; i < FigCount; i++)
+		if (FigList[i]->IsSelected())
+		{
+			FigList[i]->SetSelected(false);
+			SetSelectedFig(NULL);
+			delete FigList[i];
+			FigList[i] = NULL;
+			FigCount--;
+			for (int k = i; k < FigCount; k++) // Shifting FigList elements After deleting Selected Figure
+				FigList[k] = FigList[k + 1];
+			break;
+		}
+}
+// *******************************************************************************************
 //Destructor
 ApplicationManager::~ApplicationManager()
 {

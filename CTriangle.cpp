@@ -24,3 +24,20 @@ bool CTriangle::ClickedPointinsideFig(int x, int y)
 	}
 	return false;
 }
+
+void CTriangle::MoveFigs(Point NewP)
+{
+	Point cen;
+	cen.x = (corner1.x + corner2.x + corner3.x) / 3;
+	cen.y = (corner1.y + corner2.y + corner3.y) / 3;
+
+	double Difx = cen.x - NewP.x;
+	double Dify = cen.y - NewP.y;
+
+	corner1.x += Difx;
+	corner1.y += Dify;
+	corner2.x += Difx;
+	corner2.y += Dify;
+	corner3.x += Difx;
+	corner3.y += Dify;
+}
