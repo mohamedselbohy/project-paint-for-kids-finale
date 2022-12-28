@@ -37,6 +37,8 @@ void MoveAction::Execute()
 
 	
 	pOut->ClearStatusBar();
-
-	pManager->GetSelectedFig()->MoveFigs(p);
+	if (pManager->GetSelectedFig() != NULL)
+		pManager->GetSelectedFig()->MoveFigs(p);
+	else
+		pOut->PrintMessage("Oops! please select a figure to move");
 	}
