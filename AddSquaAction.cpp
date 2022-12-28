@@ -30,7 +30,7 @@ void AddSquaAction::ReadActionParameters()
 }
 void AddSquaAction::Execute()
 {
-	
+	if (!pManager->IsPlaying())
 	ReadActionParameters();
 
 	

@@ -19,6 +19,7 @@ void DrawClrAction::ReadActionParameters()
 void DrawClrAction::Execute()
 {
 	Output* pOut = pManager->GetOutput();
+	if (!pManager->IsPlaying())
 	ReadActionParameters();
 	if (pManager->GetSelectedFig() == NULL)
 	{

@@ -183,7 +183,10 @@
     <ClCompile Include="ApplicationManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MoveAction.cpp" />
+    <ClCompile Include="PlayRecAction.cpp" />
     <ClCompile Include="SelectAction.cpp" />
+    <ClCompile Include="StartRecAction.cpp" />
+    <ClCompile Include="StopRecAction.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AddCircleAction.h" />
@@ -227,8 +230,11 @@
     <ClInclude Include="ApplicationManager.h" />
     <ClInclude Include="DEFS.h" />
     <ClInclude Include="MoveAction.h" />
+    <ClInclude Include="PlayRecAction.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="SelectAction.h" />
+    <ClInclude Include="StartRecAction.h" />
+    <ClInclude Include="StopRecAction.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

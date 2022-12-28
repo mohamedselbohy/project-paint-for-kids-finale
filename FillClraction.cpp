@@ -18,6 +18,7 @@ void FillClrAction::ReadActionParameters()
 
 void FillClrAction::Execute()
 {
+	if (!pManager->IsPlaying())
 	ReadActionParameters();
 	Output* pOut = pManager->GetOutput();
 	if (pManager->GetSelectedFig() == NULL)

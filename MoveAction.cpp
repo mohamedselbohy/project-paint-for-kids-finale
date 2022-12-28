@@ -31,6 +31,7 @@ void MoveAction::ReadActionParameters()
 }
 void MoveAction::Execute()
 {
+	if (!pManager->IsPlaying())
 	ReadActionParameters();
 	Output* pOut = pManager->GetOutput(); // to clear status bar 
 	Input* pIn = pManager->GetInput();

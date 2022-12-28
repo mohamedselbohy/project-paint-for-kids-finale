@@ -25,6 +25,7 @@ void SelectAction::ReadActionParameters()
 }
 void SelectAction::Execute()
 {
+	if (!pManager->IsPlaying())
 	ReadActionParameters();
 
 	Output* pOut = pManager->GetOutput(); // to clear status bar 

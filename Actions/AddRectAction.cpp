@@ -41,6 +41,7 @@ void AddRectAction::ReadActionParameters()
 //Execute the action
 void AddRectAction::Execute() 
 {
+	if (!pManager->IsPlaying())
 	//This action needs to read some parameters first
 	ReadActionParameters();
 	

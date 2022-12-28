@@ -31,7 +31,7 @@ void AddHexagonAction::ReadActionParameters()
 
 void AddHexagonAction::Execute()
 {
-
+	if (!pManager->IsPlaying())
 	ReadActionParameters();
 
 

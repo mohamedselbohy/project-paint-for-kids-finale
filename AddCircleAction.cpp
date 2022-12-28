@@ -38,6 +38,7 @@ void AddCircleAction::ReadActionParameters()
 
 void AddCircleAction::Execute()
 {
+	if(!pManager->IsPlaying())
 	ReadActionParameters();
 
 	CCircle* C = new CCircle(c1, c2, CircGfxInfo);

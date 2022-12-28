@@ -9,15 +9,19 @@
 #include "DrawClrAction.h"
 #include "MoveAction.h"
 #include "DeleteAction.h"
+#include "StartRecAction.h"
+#include "StopRecAction.h"
+#include "PlayRecAction.h"
 //Constructor
 ApplicationManager::ApplicationManager()
 {
 	//Create Input and output
 	pOut = new Output;
 	pIn = pOut->CreateInput();
-	
+	isrecording = false;
+	isplaying = false;
 	FigCount = 0;
-		
+	recmgr = NULL;
 	//Create an array of figure pointers and set them to NULL		
 	for(int i=0; i<MaxFigCount; i++)
 		FigList[i] = NULL;	
@@ -36,7 +40,6 @@ ActionType ApplicationManager::GetUserAction() const
 void ApplicationManager::ExecuteAction(ActionType ActType) 
 {
 	Action* pAct = NULL;
-	
 	//According to Action Type, create the corresponding action object
 	switch (ActType)
 	{
@@ -70,6 +73,15 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		case DRAW_DELETE:
 			pAct = new DeleteAction(this);
 			break;
+		case DRAW_START_REC:
+			pAct = new StartRecAction(this);
+			break;
+		case DRAW_STOP_REC:
+			pAct = new StopRecAction(this);
+			break;
+		case DRAW_PLAY_RECORDING:
+			pAct = new PlayRecAction(this);
+			break;
 		case EXIT:
 			///create ExitAction here
 			
@@ -83,8 +95,21 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 	if(pAct != NULL)
 	{
 		pAct->Execute();//Execute
-		delete pAct;	//You may need to change this line depending to your implementation
-		pAct = NULL;
+		if (!isrecording)
+		{
+			delete pAct;	//You may need to change this line depending to your implementation
+			pAct = NULL;
+		}
+		else
+		{
+			StartRecAction* test = dynamic_cast<StartRecAction*>(pAct);
+			if (test == NULL)
+			{
+				recmgr->recordaction(pAct);
+			}
+			else
+				recmgr = test;
+		}
 	}
 }
 //==================================================================================//
@@ -154,6 +179,14 @@ void ApplicationManager::OnlyThisFigIsSelected(CFigure* DesiredFig) //unselect a
 			FigList[i]->SetSelected(false);
 	}
 }
+void ApplicationManager::setrecording(bool k)
+{
+	isrecording = k;
+}
+void ApplicationManager::setPlaying(bool k)
+{
+	isplaying = k;
+}
 //********************************************************************************************
 void ApplicationManager::DeletingFigure() {
 	for (int i = 0; i < FigCount; i++)
@@ -168,6 +201,33 @@ void ApplicationManager::DeletingFigure() {
 				FigList[k] = FigList[k + 1];
 			break;
 		}
+}
+void ApplicationManager::clearall()
+{
+	for (int i = 0; i < FigCount; i++)
+	{
+		delete FigList[i];
+		FigList[i] = NULL;
+	}
+	FigCount = 0;
+}
+bool ApplicationManager::isclear()
+{
+	if (FigCount == 0)
+		return true;
+	else
+		return false;
+}
+bool ApplicationManager::IsPlaying()
+{
+	if (isplaying)
+		return true;
+	else
+		return false;
+}
+ StartRecAction* ApplicationManager::getrecmgr()
+{
+	return recmgr;
 }
 // *******************************************************************************************
 //Destructor

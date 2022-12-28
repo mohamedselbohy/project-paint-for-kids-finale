@@ -40,6 +40,7 @@ void AddTriaAction::ReadActionParameters()
 
 void AddTriaAction::Execute()
 {
+	if (!pManager->IsPlaying())
 	ReadActionParameters();
 
 
